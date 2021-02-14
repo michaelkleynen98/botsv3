@@ -1,0 +1,74 @@
+body{
+    /* background-image: url(background.jpg);
+   background-attachment: fixed;
+   background-size: cover; */
+   background-color: rgb(80, 77, 77);
+}
+h1{
+   color: white;
+}
+p{
+   color: white;
+}
+.container-fluid{
+   height: 750px;
+   text-align: center;
+}
+.contactHeader{
+   text-align: center;
+   height: 200px;
+   width: 100%;
+}
+
+.icons{
+   margin: 10px;
+}
+
+.form-control{
+   width: 50px;
+}
+input.inputClass {
+   width: 300px;
+   height: 35px;
+   border-radius: 8px;
+   margin: 12px;
+}
+
+input.inputClass2 {
+   width: 300px;
+   height: 80px;
+   border-radius: 8px;
+   margin: 12px;
+}
+.buttonClass{
+       border: none;
+       padding: 16px 32px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 16px;
+       margin: 4px 2px;
+       transition-duration: 0.4s;
+       border-radius: 20px;
+}
+.menu{
+   width: 100%;
+   background: rgb(255,254,255);
+    background: linear-gradient(56deg, rgba(255,254,255,1) 0%, rgba(53,53,53,1) 0%, rgba(175,111,111,1) 41%, rgba(22,22,22,1) 89%, rgba(10,10,10,1) 95%, rgba(0,0,0,1) 100%, rgba(163,163,163,0) 100%);
+   text-align: center;
+   height: 50px;
+   line-height: 47px;
+}
+
+a{
+   color: white;
+   margin: 25px;
+}
+a:hover{
+   color: rgb(148, 148, 238) !important;
+   text-decoration: none !important; 
+}
+
+footer{
+margin-top: 180px;
+}
