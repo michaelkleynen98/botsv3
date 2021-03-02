@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
     <title>Contact</title>
 </head>
 
@@ -47,13 +47,14 @@
                     </div>
                     <div class="col-md-6">
                         <h1>Links</h1>
-                        <p>api doc:</p>
-                        <a href="">link text</a><br>
+                        <p>Not a discord member yet? click below!</p>
+                        <a href="https://discord.com/" target="_blank">discord.com</a><br>
                     </div>
                 </div>
                 <br style="margin-top: 15px;">
                 <div class="row">
                     <div class="col-md-6">
+
                         <h1>Contacts</h1>
                         <p>Email: support@syntraTeam.com</p>
                         <p>Phone: 0478546769</p>
@@ -66,14 +67,19 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <input type="text" class="inputClass" placeholder="First Name"> <br>
-                <input type="text" class="inputClass" placeholder="Last Name"> <br>
-                <input type="email" class="inputClass" placeholder="What's your email?"> <br>
-                <textarea rows="3" cols="38" placeholder="Your questions..."></textarea><br>
-                <input type="submit" class="buttonClass" value="Send message">
+                <form id="myForm" (submit)="sendEmail($event)">
+                    <input type="text" class="inputClass" placeholder="First Name" name="first_name"> <br>
+                    <input type="text" class="inputClass" placeholder="Last Name" name="last_name"> <br>
+                    <input type="email" class="inputClass" placeholder="What's your email?" name="email"> <br>
+                    <textarea rows="3" cols="38" placeholder="Your questions..."name="message"></textarea><br>
+                    <button class="buttonClass" type="submit" >Send message</button>
+                        
+                </form>
+
             </div>
         </div>
     </div>
+
 
     <!--<footer class="footer">
         <p>Don't have a discord account yet? Press <a style="margin:0"
@@ -81,5 +87,7 @@
                 target="_blank"> here</a> to register</p>
     </footer> -->
 </body>
+
+
 
 </html>

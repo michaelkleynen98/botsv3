@@ -42,3 +42,7 @@ a:hover{
     color: rgb(148, 148, 238) !important;
     text-decoration: none !important; 
 }
+
+img{
+    height: 560px;
+}
