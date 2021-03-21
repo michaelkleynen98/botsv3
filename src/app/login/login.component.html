@@ -34,12 +34,12 @@
                     <input type="password" #password class="form__input" autofocus placeholder="Password">
                     <div class="form__input-error-message"></div>
                 </div>
-                <button class="form__button" (click)="authservice.login(email.value,password.value)" type="submit">Continue</button>
+                <button class="form__button" type="button"(click)="authservice.login(email.value,password.value)">Continue</button>
                 <p class="form__text">
-                    <a href="#" class="form__link">Forgot your password?</a>
+                    <a class="form__link">Forgot your password?</a>
                 </p>
                 <p class="form__text">
-                    <a class="form__link" href="#" id="linkCreateAccount" >Don't have an account? Create account</a>
+                    <a class="form__link" id="linkCreateAccount" >Don't have an account? Create account</a>
                 </p>
             </form>
             

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,NgZone } from '@angular/core';
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { User } from './user';
@@ -18,7 +18,7 @@ import { User } from './user';
 })
 export class AuthService {
   user: User;
-  constructor(public afAuth: AngularFireAuth, public router: Router) {
+  constructor(public afAuth: AngularFireAuth, public router: Router,public ngZone: NgZone) {
 
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -32,8 +32,16 @@ export class AuthService {
   }
 
   async login(email: string, password: string) {
-    var result = await this.afAuth.signInWithEmailAndPassword(email, password)
-    this.router.navigate(['admin/list']);
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+          this.ngZone.run(() => {
+          console.log(result);
+          this.router.navigate(['/main']);
+        });
+
+      }).catch((error) => {
+        window.alert(error.message)
+      })
   }
 
 

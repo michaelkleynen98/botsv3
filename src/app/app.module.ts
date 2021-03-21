@@ -15,18 +15,10 @@ import { config } from 'rxjs';
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './admin/verify-email/verify-email.component';
+import { environment } from '../environments/environment';
 
 
 
-var firebaseConfig = {
-  apiKey: "AIzaSyDjkVoGFiyqDLjTNwCvc7bE7oayJImRRag",
-  authDomain: "dbotsfinal.firebaseapp.com",
-  projectId: "dbotsfinal",
-  storageBucket: "dbotsfinal.appspot.com",
-  messagingSenderId: "726212118380",
-  appId: "1:726212118380:web:fc705c4497dd40dde81549",
-  measurementId: "G-XTQC8T2ZGX"
-};
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full'},
@@ -58,7 +50,7 @@ const routes: Routes = [
     VerifyEmailComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
