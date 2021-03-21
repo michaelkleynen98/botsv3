@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
-import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { User } from 'firebase';
+import { User } from './user';
 
 //@Injectable({
   //providedIn: 'root'
@@ -33,27 +32,29 @@ export class AuthService {
   }
 
   async login(email: string, password: string) {
-    var result = await this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    var result = await this.afAuth.signInWithEmailAndPassword(email, password)
     this.router.navigate(['admin/list']);
   }
 
 
   async register(email: string, password: string) {
-    var result = await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    this.sendEmailVerification();
+    var result = await this.afAuth.createUserWithEmailAndPassword(email, password)
+    this.sendVerificationMail();
   }
 
-  async sendEmailVerification() {
-    await this.afAuth.auth.currentUser.sendEmailVerification()
-    this.router.navigate(['admin/verify-email']);
+  sendVerificationMail() {
+    return this.afAuth.currentUser.then(user => user?.sendEmailVerification())
+    .then(() => {
+      window.alert('Please verify your email');
+    })
   }
 
   async sendPasswordResetEmail(passwordResetEmail: string) {
-    return await this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail);
+    return await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
   }
 
   async logout() {
-    await this.afAuth.auth.signOut();
+    await this.afAuth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['admin/login']);
   }
@@ -61,11 +62,6 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return user !== null;
-  }
-
-  async loginWithGoogle() {
-    await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-    this.router.navigate(['admin/list']);
   }
 
 
